@@ -1,1 +1,1 @@
-# DBMS_Mini_Project
+# Bank Management System
