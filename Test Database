@@ -1,0 +1,68 @@
+Select * from insurance;
+Select * from bank;
+Select * from branch;
+Select * from atm;
+Select * from cust_has_account;
+Select * from bank_has_s_holders;
+Select * from account;
+
+
+/* Sample query*/
+
+select employee.e_name
+from employee
+where e_salary=60000;
+
+/* select all employees of a particular type having salaries>20000*/
+
+select employee.e_type,sum(employee.e_salary)
+from employee 
+where employee.e_salary > 20000
+group by employee.e_type;
+
+/*sorts according to dob,name */
+
+select c_id,c_name, c_dob
+from customer
+order by c_dob,c_name;
+
+
+select e_name
+from Employee
+where e_cust_id is not NULL and e_sh_id is NULL;
+
+
+select bk_name from bank where bk_name not in (select a_bank_name from atm);
+
+
+
+INSERT INTO Employee values('Vishnu Singh','Manager',60000,'013',NULL,NULL);
+
+INSERT INTO Employee values('Ankit KV','Manager',60000,'014',NULL,NULL);
+
+INSERT INTO Employee values('Jayarath','Manager',60000,'015',NULL,NULL);
+
+INSERT INTO Employee values('Sahil Purohit','Manager',60000,'016',NULL,NULL);
+
+INSERT INTO Employee values('Angad Dhupar','Manager',60000,'017',NULL,NULL);
+
+INSERT INTO Employee values('Karthik R','Manager',60000,'018',NULL,NULL);
+
+select e_name from employee where e_type = 'Manager' and e_cust_id is NULL;
+
+
+ 
+/* select all banks that do not have an atm in them. */
+
+select bk_name from bank where bk_name not in (select a_bank_name from atm);
+
+/* selects all customers and sorts them by dob and name */
+
+select c_id,c_name, c_dob
+from customer
+order by c_dob,c_name;
+
+/* select all employees who are customers and are also not shareholders */
+select e_name
+from Employee
+where e_cust_id is not NULL and e_sh_id is NULL;
